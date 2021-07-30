@@ -20,7 +20,7 @@ router.use((req, res, next) => {
 
 router.post('/session-start', (req, res, next) => {
     const id = uuidv4()
-    fs.writeFile(`./build/sessions/${req.body['device-name']}.${id}.txt`, `session started\n`, {encoding : 'utf-8'}, err => {
+    fs.writeFile(`./build/sessions/${req.body['device_name']}.${id}.txt`, `session started\n`, {encoding : 'utf-8'}, err => {
         if (err) return res.status(500).json(err);
         console.log(`started session ${id}`)
         return res.status(200).json({session: id});
@@ -28,7 +28,7 @@ router.post('/session-start', (req, res, next) => {
 })
 
 router.post('/message', (req, res, next) => {
-    fs.appendFile(`./build/sessions/${req.body['device-name']}.${req.body.id}.txt`, `${req.body.message}\n`, {encoding : 'utf-8'}, err => {
+    fs.appendFile(`./build/sessions/${req.body['device_name']}.${req.body.id}.txt`, `${req.body.message}\n`, {encoding : 'utf-8'}, err => {
         if (err) return res.status(500).json(err);
         console.log(`got message ${req.body.message}`)
         return res.status(200).json({ok : "ok"});

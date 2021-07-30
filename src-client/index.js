@@ -39,7 +39,7 @@ window.onload = () => {
         console.log(_)
         console.log(`will query ${selector.element.value}`)
 
-        fetch(`http://localhost:6061/session-contents?id=${selector.element.value}`)
+        fetch(`http://139.162.160.197:6061/session-contents?id=${selector.element.value}`)
             .then(result=>result.json())
             .then(data => {
 
@@ -61,7 +61,7 @@ window.onload = () => {
             })
     })
 
-    fetch('http://localhost:6061/list-sessions')
+    fetch('http://139.162.160.197:6061/list-sessions')
         .then(result => result.json())
         .then(data => {
             console.log(data)
